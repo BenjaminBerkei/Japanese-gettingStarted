@@ -57,9 +57,36 @@ public class HiraganaCharacters
             };
     }
 
+    //Todo : possibly use a copy of the alphabet and set status to active to return the copy
+    //the current implementation removes entries from the only existing alphabet, thus making it impossible to increase difficulty during runtime
+    public void setDifficulty(int n)
+    {
+        if(n <= 1)
+        {
+            HiraganaAlphabet = HiraganaAlphabet.Take(10).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+        }
+
+        else if(n == 2)
+        {
+            HiraganaAlphabet = HiraganaAlphabet.Take(20).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+        }
+
+        else if (n == 3)
+        {
+            HiraganaAlphabet = HiraganaAlphabet.Take(30).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+        }
+
+        else if (n == 4)
+        {
+            HiraganaAlphabet = HiraganaAlphabet.Take(40).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+        }
+
+        //n>4 -> Variable is untouched, everything stays as is
+    }
+
     public Dictionary<string, string> getRandomChars(int n)
     {
-        if (n > HiraganaAlphabet.Count)
+        if (n > HiraganaAlphabet.Count ||  n <= 0)
         {
             return null;
         }
