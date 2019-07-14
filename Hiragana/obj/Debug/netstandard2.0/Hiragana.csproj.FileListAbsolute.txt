@@ -1,0 +1,9 @@
+C:\Users\Benny\Japanese-gettingStarted\Hiragana\bin\Debug\netstandard2.0\Hiragana.deps.json
+C:\Users\Benny\Japanese-gettingStarted\Hiragana\bin\Debug\netstandard2.0\Hiragana.dll
+C:\Users\Benny\Japanese-gettingStarted\Hiragana\bin\Debug\netstandard2.0\Hiragana.pdb
+C:\Users\Benny\Japanese-gettingStarted\Hiragana\obj\Debug\netstandard2.0\Hiragana.csprojAssemblyReference.cache
+C:\Users\Benny\Japanese-gettingStarted\Hiragana\obj\Debug\netstandard2.0\Hiragana.csproj.CoreCompileInputs.cache
+C:\Users\Benny\Japanese-gettingStarted\Hiragana\obj\Debug\netstandard2.0\Hiragana.AssemblyInfoInputs.cache
+C:\Users\Benny\Japanese-gettingStarted\Hiragana\obj\Debug\netstandard2.0\Hiragana.AssemblyInfo.cs
+C:\Users\Benny\Japanese-gettingStarted\Hiragana\obj\Debug\netstandard2.0\Hiragana.dll
+C:\Users\Benny\Japanese-gettingStarted\Hiragana\obj\Debug\netstandard2.0\Hiragana.pdb
