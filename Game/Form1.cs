@@ -13,6 +13,12 @@ namespace Game
         public Form1()
         {
             InitializeComponent();
+            this.Text = "Hiragana puzzle";
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.StartPosition = FormStartPosition.CenterScreen;
+
             hiragana = new HiraganaCharacters();
             buttons = new List<Button>();
             initalizeButtons();
@@ -29,6 +35,10 @@ namespace Game
             buttons.Add(this.button4);
             buttons.Add(this.button5);
             buttons.Add(this.button6);
+            foreach(Button b in buttons)
+            {
+                b.Font = new System.Drawing.Font("Microsoft Sans Serif", 130);
+            }
         }
 
         private void setTextForButtons()
@@ -62,7 +72,7 @@ namespace Game
 
             else
             {
-                //Reihenfolge key, value ist nicht festgelegt
+                //I can't tell whether my string is a key or value, so I'll have to check both combinations
                 if (hiragana.compareKeyAndValue(mostRecentClick, buttons[pos].Text) || hiragana.compareKeyAndValue(buttons[pos].Text, mostRecentClick))
                 {
                     isMatch = true;
@@ -112,6 +122,19 @@ namespace Game
         private void Button6_Click(object sender, EventArgs e)
         {
             findMatchingButtons(5);
+        }
+
+        private void Button7_Click(object sender, EventArgs e)
+        {
+            foreach(var button in buttons)
+            {
+                button.BackColor = System.Drawing.SystemColors.ButtonFace;
+                button.UseVisualStyleBackColor = true;
+            }
+            setTextForButtons();
+            initalizeButtons();
+
+            
         }
     }
 }

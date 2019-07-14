@@ -92,6 +92,11 @@ public class HiraganaCharacters
 
     public bool compareKeyAndValue(string key, string value)
     {
-        return HiraganaAlphabet[key].Equals(value);
+        if (HiraganaAlphabet.ContainsKey(key))
+        {
+            return HiraganaAlphabet[key].Equals(value);
+        }
+
+        return false;
     }
 }
