@@ -79,6 +79,7 @@
             // 
             // button5
             // 
+            this.button5.BackColor = System.Drawing.SystemColors.Control;
             this.button5.Location = new System.Drawing.Point(50, 50);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(300, 250);
@@ -112,6 +113,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(986, 614);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
