@@ -72,7 +72,7 @@ public class HiraganaCharacters
 
         for (int i = 0; i < n; i++)
         {
-            var chosenEntry = workingCopy.ElementAt(random.Next(workingCopy.Count - 1));
+            var chosenEntry = workingCopy.ElementAt(random.Next(workingCopy.Count));
             randomChars.Add(chosenEntry.Key, chosenEntry.Value);
             workingCopy.Remove(chosenEntry.Key);
         }
@@ -82,7 +82,7 @@ public class HiraganaCharacters
 
     public string getKeyByValue(string value)
     {
-        return HiraganaAlphabet.FirstOrDefault(x => x.Value == value).Key;
+        return HiraganaAlphabet.FirstOrDefault(x => x.Value.Equals(value)).Key;
     }
 
     public string getValueByKey(string key)
@@ -92,6 +92,6 @@ public class HiraganaCharacters
 
     public bool compareKeyAndValue(string key, string value)
     {
-        return HiraganaAlphabet[key] == value;
+        return HiraganaAlphabet[key].Equals(value);
     }
 }
