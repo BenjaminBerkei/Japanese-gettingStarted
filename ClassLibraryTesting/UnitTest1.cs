@@ -50,7 +50,89 @@ namespace ClassLibraryTesting
             Assert.IsTrue(hiragana.getRandomChars(20).Count == 20);
             hiragana.setDifficulty(-5);
             Assert.IsTrue(hiragana.getRandomChars(10).Count == 10);
+        }
 
+        [TestMethod]
+        public void getKeyByValue_nonexistingKey_returnsNull()
+        {
+            //Arrange
+            HiraganaCharacters hiragana = new HiraganaCharacters();
+
+            //Act
+            var result = hiragana.getKeyByValue("く");
+
+            //Assert
+            Assert.IsNull(result);
+        }
+
+        [TestMethod]
+        public void getKeyByValue_existingKey_returnsProperValue()
+        {
+            //Arrange
+            HiraganaCharacters hiragana = new HiraganaCharacters();
+
+            //Act
+            var result = hiragana.getKeyByValue("ku");
+
+            //Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(result, "く");
+        }
+
+        [TestMethod]
+        public void getValueByKey_nonExistingValue_returnsNull()
+        {
+            HiraganaCharacters hiragana = new HiraganaCharacters();
+
+            //Act
+            var result = hiragana.getValueByKey("ku");
+
+            //Assert
+            Assert.IsNull(result);
+        }
+
+        [TestMethod]
+        public void getValueByKey_ExistingValue_returnsKey()
+        {
+            //Arrange
+            HiraganaCharacters hiragana = new HiraganaCharacters();
+
+            //Act
+            var result = hiragana.getValueByKey("く");
+
+            //Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(result, "ku");
+        }
+
+        [TestMethod]
+        public void compareKeyAndValue_correctComparison_returnsTrue()
+        {
+            //Arrange
+            HiraganaCharacters hiragana = new HiraganaCharacters();
+
+            //Act
+
+            var result = hiragana.compareKeyAndValue("も", "mo");
+
+            //Assert
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void compareKeyAndValue_incorrectComparison_returnsFalse()
+        {
+            //Arrange
+            HiraganaCharacters hiragana = new HiraganaCharacters();
+
+            //Act
+
+            var result = hiragana.compareKeyAndValue("も", "moada");
+
+            //Assert
+            Assert.IsNotNull(result);
+            Assert.IsFalse(result);
         }
     }
 }
