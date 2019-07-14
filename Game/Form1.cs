@@ -9,6 +9,7 @@ namespace Game
     {
         HiraganaCharacters hiragana;
         List<Button> buttons;
+        string mostRecentClick;
         public Form1()
         {
             InitializeComponent();
@@ -16,6 +17,7 @@ namespace Game
             buttons = new List<Button>();
             initalizeButtons();
             setTextForButtons();
+            initalizeButtons();
 
         }
 
@@ -49,34 +51,67 @@ namespace Game
             } while (buttons.Count > 0 && keyValuePairs.Count > 0);
         }
 
+        private void findMatchingButtons(int pos)
+        {
+            bool isMatch = false;
+
+            if (mostRecentClick == null)
+            {
+                mostRecentClick = buttons[pos].Text;
+            }
+
+            else
+            {
+                //Reihenfolge key, value ist nicht festgelegt
+                if (hiragana.compareKeyAndValue(mostRecentClick, buttons[pos].Text) || hiragana.compareKeyAndValue(buttons[pos].Text, mostRecentClick))
+                {
+                    isMatch = true;
+                }
+            }
+
+            if (isMatch)
+            {
+                buttons[pos].BackColor = System.Drawing.Color.FromArgb(155, 155, 155);
+                foreach (var button in buttons)
+                {
+                    if (button.Text.Equals(mostRecentClick))
+                    {
+                        button.BackColor = System.Drawing.Color.FromArgb(155, 155, 155);
+                    }
+                }
+            }
+
+            mostRecentClick = buttons[pos].Text;
+        }
+
         private void Button1_Click(object sender, EventArgs e)
         {
-
+            findMatchingButtons(0);
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
-
+            findMatchingButtons(1);
         }
 
         private void Button3_Click(object sender, EventArgs e)
         {
-
+            findMatchingButtons(2);
         }
 
         private void Button4_Click(object sender, EventArgs e)
         {
-
+            findMatchingButtons(3);
         }
 
         private void Button5_Click(object sender, EventArgs e)
         {
-
+            findMatchingButtons(4);
         }
 
         private void Button6_Click(object sender, EventArgs e)
         {
-
+            findMatchingButtons(5);
         }
     }
 }
