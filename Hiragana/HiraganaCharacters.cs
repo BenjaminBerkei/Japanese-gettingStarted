@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace Hiragana
+public class HiraganaCharacters
 {
-    class HiraganaCharacters
+    Dictionary<string, string> HiraganaAlphabet { get; set; }
+    public HiraganaCharacters()
     {
-        Dictionary<string, string> hiraganaAlphabet;
-        public HiraganaCharacters()
-        {
-            hiraganaAlphabet = new Dictionary<string, string>() {
+        HiraganaAlphabet = new Dictionary<string, string>() {
                 { "あ", "a"  },
                 { "い", "i"  },
                 { "う", "u"  },
@@ -56,7 +55,43 @@ namespace Hiragana
                 { "を", "wo" },//w
                 { "ん", "n"  }
             };
+    }
+
+    public Dictionary<string, string> getRandomChars(int n)
+    {
+        if (n > HiraganaAlphabet.Count)
+        {
+            return null;
         }
 
+        //create a working copy of Hiragana
+        Dictionary<string, string> workingCopy = new Dictionary<string, string>(HiraganaAlphabet);
+        //Dictionary that is going to be returned
+        Dictionary<string, string> randomChars = new Dictionary<string, string>();
+        Random random = new Random();
+
+        for (int i = 0; i < n; i++)
+        {
+            var chosenEntry = workingCopy.ElementAt(random.Next(workingCopy.Count - 1));
+            randomChars.Add(chosenEntry.Key, chosenEntry.Value);
+            workingCopy.Remove(chosenEntry.Key);
+        }
+
+        return randomChars;
+    }
+
+    public string getKeyByValue(string value)
+    {
+        return HiraganaAlphabet.FirstOrDefault(x => x.Value == value).Key;
+    }
+
+    public string getValueByKey(string key)
+    {
+        return HiraganaAlphabet[key];
+    }
+
+    public bool compareKeyAndValue(string key, string value)
+    {
+        return HiraganaAlphabet[key] == value;
     }
 }
